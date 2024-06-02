@@ -82,7 +82,7 @@ pre {
         <input type="submit" value="Scan Ports">
     </form>
     {% if result %}
-    <h2>Result:</h2>
+    <h2>Result: <u>{{hostname}}</u></h2>
     <pre>{{ result | safe}}</pre>
     {% endif %}
 </body>

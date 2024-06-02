@@ -4,7 +4,7 @@ from ai import generate_chat_response
 from scan import get_open_ports
 import markdown
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 def resolve_dns(hostname):
     try:
@@ -15,9 +15,9 @@ def resolve_dns(hostname):
         print(f"Failed to resolve IP for {hostname}")  # Debug anchor
         return None
 
-def process_open_ports(ip, start, end, threads, verbose):
+def process_open_ports(ip, start, end, threads):
     print("Scanning open ports...")  # Debug anchor
-    open_ports = get_open_ports(ip, start, end, threads, verbose)
+    open_ports = get_open_ports(ip, start, end, threads)
     print(f"Open ports found: {open_ports}")  # Debug anchor
     response = generate_chat_response(open_ports)
     return response
@@ -32,8 +32,7 @@ def index():
             start = int(request.form['start'])
             end = int(request.form['end'])
             threads = int(request.form['threads'])
-            verbose = True if 'verbose' in request.form else False
-            result = process_open_ports(ip, start, end, threads, verbose)
+            result = process_open_ports(ip, start, end, threads)
         # Convert result to Markdown format
             result_markdown = markdown.markdown(result)
             return render_template('index.html', result=result_markdown,hostname=hostname)
@@ -41,5 +40,5 @@ def index():
             return render_template('index.html', result="Invalid hostname")
     return render_template('index.html', result=None)
 
-if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0', port=5000)
+if _name_ == '_main_':
+    app.run(debug=True,host='0.0.0.0', port=5000)

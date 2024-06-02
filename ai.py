@@ -41,6 +41,5 @@ def generate_chat_response(port):
     return convo.last.text
 
 if __name__ == "__main__":
-    open_port = [21,22]
     response = generate_chat_response(open_port)
     print(response)
