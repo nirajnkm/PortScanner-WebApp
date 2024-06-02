@@ -45,7 +45,7 @@ def get_open_ports(ip, start, end, threads):
     open_ports = prepare_threads(ip, ports, threads)
     return open_ports
 
-if _name_ == "_main_":
+if __name__ == "__main__"::
     arguments = prepare_args()
-    open_ports = get_open_ports(arguments.ip, arguments.start, arguments.end, arguments.threads)
+    open_ports = get_open_ports(arguments.ip, arguments.start, arguments.end, arguments.threads, arguments.verbose)
     print(f"Open Ports Found: {open_ports}")
