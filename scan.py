@@ -19,7 +19,7 @@ def prepare_ports(start:int, end:int):
     for port in range(start, end+1):
         yield port
 
-def scan_port(ip, port, verbose, open_ports):
+def scan_port(ip, port, open_ports):
     try:
         s = socket.socket()
         s.settimeout(1)
@@ -28,11 +28,11 @@ def scan_port(ip, port, verbose, open_ports):
     except (ConnectionRefusedError, socket.timeout):
         pass
 
-def prepare_threads(ip, ports, threads:int, verbose):
+def prepare_threads(ip, ports, threads:int):
     open_ports = []
     thread_list = []
     for port in ports:
-        thread = Thread(target=scan_port, args=(ip, port, verbose, open_ports))
+        thread = Thread(target=scan_port, args=(ip, port, open_ports))
         thread_list.append(thread)
     for thread in thread_list:
         thread.start()
@@ -40,12 +40,12 @@ def prepare_threads(ip, ports, threads:int, verbose):
         thread.join()
     return open_ports
 
-def get_open_ports(ip, start, end, threads, verbose):
+def get_open_ports(ip, start, end, threads):
     ports = prepare_ports(start, end)
-    open_ports = prepare_threads(ip, ports, threads, verbose)
+    open_ports = prepare_threads(ip, ports, threads)
     return open_ports
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     arguments = prepare_args()
-    open_ports = get_open_ports(arguments.ip, arguments.start, arguments.end, arguments.threads, arguments.verbose)
-    print(f"Open Ports Found: {open_ports}")
+    open_ports = get_open_ports(arguments.ip, arguments.start, arguments.end, arguments.threads)
+    print(f"Open Ports Found: {open_ports}")
