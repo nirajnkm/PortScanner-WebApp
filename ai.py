@@ -76,6 +76,6 @@ def generate_chat_response(port):
     convo.send_message(message)
     return convo.last.text
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     response = generate_chat_response(open_port)
     print(response)
