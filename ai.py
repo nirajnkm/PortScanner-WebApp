@@ -40,6 +40,6 @@ def generate_chat_response(port):
     convo.send_message(f"These are the open ports found {port}. First, list the open ports detected. Then, provide a structured, comprehensive response detailing their potential security risks and best practices for mitigation. Prioritize clarity and conciseness, incorporating real-world examples to illustrate concepts effectively.")
     return convo.last.text
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     response = generate_chat_response(open_port)
     print(response)
