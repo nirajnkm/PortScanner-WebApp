@@ -4,7 +4,7 @@ from ai import generate_chat_response
 from scan import get_open_ports
 import markdown
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 def resolve_dns(hostname):
     try:
@@ -40,5 +40,5 @@ def index():
             return render_template('index.html', result="Invalid hostname")
     return render_template('index.html', result=None)
 
-if _name_ == '_main_':
-    app.run(debug=True,host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0',port=5000)
