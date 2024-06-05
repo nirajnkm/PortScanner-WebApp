@@ -61,9 +61,9 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     max-width: 100%;
-    line-height: 1.2;
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace; /* Use a monospace font for better alignment */
+    line-height: 0.9;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, Arial; 
 }
 
     </style>
@@ -82,7 +82,7 @@ pre {
         <input type="submit" value="Scan Ports">
     </form>
     {% if result %}
-    <h2>Result: <u>{{hostname}}</u></h2>
+    <h2>Result: <u>{{ hostname }}</u></h2>
     <pre>{{ result | safe}}</pre>
     {% endif %}
 </body>
