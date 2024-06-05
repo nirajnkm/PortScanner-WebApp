@@ -72,7 +72,7 @@ This project is a comprehensive port scanner application that allows users to sc
 ## Project Structure
 
 ```
-port-scanner/
+PortScanner-WebApp/
 │
 ├── app.py              # Main Flask application
 ├── scan.py             # Port scanning logic
