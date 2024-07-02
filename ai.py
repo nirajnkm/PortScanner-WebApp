@@ -75,7 +75,3 @@ def generate_chat_response(port):
     * Mitigation: Use strong encryption algorithms like TLS 1.3 on your web server and keep the server software updated."""
     convo.send_message(message)
     return convo.last.text
-
-if __name__ == "__main__":
-    response = generate_chat_response(open_port)
-    print(response)
